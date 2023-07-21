@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_beef": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:beef"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_knife": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bettermcdonaldsmod:knife"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bettermcdonaldsmod:beef_patty"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_knife",
+      "has_beef",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bettermcdonaldsmod:beef_patty"
+    ]
+  },
+  "sends_telemetry_event": false
+}

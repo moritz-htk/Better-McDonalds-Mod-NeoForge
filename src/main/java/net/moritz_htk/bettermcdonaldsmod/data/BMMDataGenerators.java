@@ -24,5 +24,6 @@ public class BMMDataGenerators {
         generator.addProvider(true, new BMMBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new BMMTagProvider.Blocks(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new BMMTagProvider.Items(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(true, new BMMRecipeProvider(packOutput));
     }
 }
