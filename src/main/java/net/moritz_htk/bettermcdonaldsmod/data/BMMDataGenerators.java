@@ -17,5 +17,6 @@ public class BMMDataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(true, new BMMItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(true, new BMMBlockStateProvider(packOutput, existingFileHelper));
     }
 }
