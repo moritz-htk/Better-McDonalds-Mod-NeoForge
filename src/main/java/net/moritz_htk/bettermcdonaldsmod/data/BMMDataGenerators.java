@@ -27,5 +27,6 @@ public class BMMDataGenerators {
         generator.addProvider(true, new BMMRecipeProvider(packOutput));
         generator.addProvider(true, BMMLootTableProvider.create(packOutput));
         generator.addProvider(true, new BMMWorldGenProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new BMMAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
     }
 }
