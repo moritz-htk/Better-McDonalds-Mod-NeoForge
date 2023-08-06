@@ -61,6 +61,7 @@ public class BMMTagProvider {
 
     public static class Blocks extends TagsProvider<Block>{
         public static final TagKey<Block> SALT_BLOCK = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("forge", "salt"));
+        public static final TagKey<Block> SHOVEL_MINEABLE = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("minecraft", "mineable/shovel"));
 
         public Blocks(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, Registries.BLOCK, registries, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
@@ -70,6 +71,10 @@ public class BMMTagProvider {
         protected void addTags(HolderLookup.Provider provider) {
             TagAppender<Block> saltBlockTagAppender = tag(SALT_BLOCK);
             saltBlockTagAppender.add(BMMBlocks.SALT_BLOCK.getKey());
+
+            TagAppender<Block> shovelMineableTagAppender = tag(SHOVEL_MINEABLE);
+            shovelMineableTagAppender.replace(false);
+            shovelMineableTagAppender.add(BMMBlocks.SALT_BLOCK.getKey());
         }
     }
 }
