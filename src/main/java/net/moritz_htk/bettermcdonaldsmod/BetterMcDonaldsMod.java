@@ -16,9 +16,9 @@ public class BetterMcDonaldsMod {
     public BetterMcDonaldsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        BMMItems.register(modEventBus);
-        BMMBlocks.register(modEventBus);
         BMMCreativeModeTabs.register(modEventBus);
+        BMMBlocks.register(modEventBus);
+        BMMItems.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
