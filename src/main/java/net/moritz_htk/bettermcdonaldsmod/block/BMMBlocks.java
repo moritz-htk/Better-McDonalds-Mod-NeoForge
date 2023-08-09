@@ -17,13 +17,9 @@ import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 import java.util.function.Supplier;
 
 public class BMMBlocks {
-    public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, BetterMcDonaldsMod.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BetterMcDonaldsMod.MOD_ID);
 
-    public static final RegistryObject<Block> SALT_BLOCK = registerBlock(
-            () -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND)
-                    .sound(SoundType.SAND)
-                    .strength(0.5f)));
+    public static final RegistryObject<Block> SALT_BLOCK = registerBlock(() -> new FallingBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SAND).strength(0.5f)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register("salt_block", block);
@@ -32,8 +28,7 @@ public class BMMBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(RegistryObject<T> block) {
-        BMMItems.ITEMS.register("salt_block", () -> new BlockItem(block.get(),
-                new Item.Properties()));
+        BMMItems.ITEMS.register("salt_block", () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

@@ -29,6 +29,7 @@ public class BMMItemModelProvider extends ItemModelProvider {
         simpleItem(BMMItems.CHICKENBURGER);
         simpleItem(BMMItems.MCCHICKEN);
         simpleItem(BMMItems.FILET_O_FISH);
+        simpleItem(BMMItems.MCWRAP);
         simpleItem(BMMItems.CHICKEN_MCNUGGETS);
         simpleItem(BMMItems.FRIES);
         simpleItem(BMMItems.HAPPY_MEAL);
@@ -41,14 +42,10 @@ public class BMMItemModelProvider extends ItemModelProvider {
     }
 
     private void simpleItem(RegistryObject<Item> item) {
-        withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getId().getPath()));
+        withExistingParent(item.getId().getPath(), new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     private void handheldItem() {
-        withExistingParent(BMMItems.KNIFE.getId().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + BMMItems.KNIFE.getId().getPath()));
+        withExistingParent(BMMItems.KNIFE.getId().getPath(), new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + BMMItems.KNIFE.getId().getPath()));
     }
 }
