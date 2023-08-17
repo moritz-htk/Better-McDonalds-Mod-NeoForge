@@ -1,3 +1,4 @@
+// Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.data.PackOutput;
@@ -9,13 +10,16 @@ import net.minecraftforge.registries.RegistryObject;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 
+// Custom item model provider for defining item models and textures
 public class BMMItemModelProvider extends ItemModelProvider {
     public BMMItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+        // Initialize the item model provider with the output location, mod ID, and existing file helper
         super(output, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
+        // Register models and textures for each item in the mod
         simpleItem(BMMItems.SALT);
         simpleItem(BMMItems.CHEESE);
         simpleItem(BMMItems.BEEF_PATTY);
@@ -38,13 +42,17 @@ public class BMMItemModelProvider extends ItemModelProvider {
         simpleItem(BMMItems.SPRITE);
         simpleItem(BMMItems.LIPTON_ICE_TEA_PEACH);
         simpleItem(BMMItems.MCFLURRY);
+
+        // Register model and texture for handheld item (knife)
         handheldItem();
     }
 
+    // Register a simple item model and texture
     private void simpleItem(RegistryObject<Item> item) {
         withExistingParent(item.getId().getPath(), new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getId().getPath()));
     }
 
+    // Register a handheld item model and texture
     private void handheldItem() {
         withExistingParent(BMMItems.KNIFE.getId().getPath(), new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + BMMItems.KNIFE.getId().getPath()));
     }

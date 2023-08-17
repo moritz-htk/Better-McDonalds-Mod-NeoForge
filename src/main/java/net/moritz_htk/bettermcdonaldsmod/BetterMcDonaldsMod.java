@@ -1,3 +1,4 @@
+// Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -9,24 +10,33 @@ import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMCreativeModeTabs;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 
+// Declare the mod as a NeoForge mod with the specified mod ID
 @Mod(BetterMcDonaldsMod.MOD_ID)
 public class BetterMcDonaldsMod {
     public static final String MOD_ID = "bettermcdonaldsmod";
 
+    // Constructor for the mod class
     public BetterMcDonaldsMod() {
+        // Get the mod event bus
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // Register creative mode tab, blocks, and items on the event bus
         BMMCreativeModeTabs.register(modEventBus);
         BMMBlocks.register(modEventBus);
         BMMItems.register(modEventBus);
 
+        // Register this mod class as a listener for MinecraftForge events
         MinecraftForge.EVENT_BUS.register(this);
 
+        // Add a listener for the BuildCreativeModeTabContentsEvent
         modEventBus.addListener(this::addCreative);
     }
 
+    // Event listener method for adding items to creative mode tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        // Check if the event corresponds to the custom creative mode tab
         if (event.getTab() == BMMCreativeModeTabs.BETTER_MCDONALDS_MOD_TAB.get()) {
+            // Add various items to the creative mode tab
             event.accept(BMMBlocks.SALT_BLOCK);
             event.accept(BMMItems.SALT);
             event.accept(BMMItems.CHEESE);

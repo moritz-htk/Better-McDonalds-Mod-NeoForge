@@ -1,3 +1,4 @@
+// Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod.item;
 
 import net.minecraft.world.food.FoodProperties;
@@ -12,9 +13,12 @@ import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.item.custom.DrinkItem;
 import net.moritz_htk.bettermcdonaldsmod.item.custom.KnifeItem;
 
+// Class for registering custom items using DeferredRegister
 public class BMMItems {
+    // Create a DeferredRegister for Item instances
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BetterMcDonaldsMod.MOD_ID);
 
+    // Register each custom item using a RegistryObject
     public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON)));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.5f).meat().build())));
     public static final RegistryObject<Item> BEEF_PATTY = ITEMS.register("beef_patty", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(4).saturationMod(2f).meat().build())));
@@ -37,8 +41,11 @@ public class BMMItems {
     public static final RegistryObject<Item> SPRITE = ITEMS.register("sprite", () -> new DrinkItem(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(4).saturationMod(2f).build())));
     public static final RegistryObject<Item> LIPTON_ICE_TEA_PEACH = ITEMS.register("lipton_ice_tea_peach", () -> new DrinkItem(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(4).saturationMod(2f).build())));
     public static final RegistryObject<Item> MCFLURRY = ITEMS.register("mcflurry", () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food(new FoodProperties.Builder().nutrition(6).saturationMod(3f).build())));
+
+    // Register a SwordItem with custom properties using a RegistryObject
     public static final RegistryObject<SwordItem> KNIFE = ITEMS.register("knife", () -> new KnifeItem(3, -3f, new Item.Properties().rarity(Rarity.COMMON)));
 
+    // Method to register the items to the event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

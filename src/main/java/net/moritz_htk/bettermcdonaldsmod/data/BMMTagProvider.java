@@ -1,3 +1,4 @@
+// Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.core.HolderLookup;
@@ -17,20 +18,26 @@ import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
+// Definition of the main class for tag generation
 public class BMMTagProvider {
+    // Definition of the Items class for item tag generation
     public static class Items extends TagsProvider<Item> {
+        // Definition of various tag keys for items
         public static final TagKey<Item> SALT = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "dusts/salt"));
         public static final TagKey<Item> BURGERS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "burgers"));
         public static final TagKey<Item> DRINKS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "drinks"));
         public static final TagKey<Item> SIDE_DISHES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "side_dishes"));
         public static final TagKey<Item> SAUCES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "sauces"));
 
+        // Constructor for the Items class
         public Items(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, Registries.ITEM, registries, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
         }
 
+        // Method to add tags to items
         @Override
         protected void addTags(HolderLookup.Provider provider) {
+            // Appending tags to specific items
             TagAppender<Item> saltTagAppender = tag(SALT);
             saltTagAppender.add(BMMItems.SALT.getKey());
 
@@ -59,16 +66,21 @@ public class BMMTagProvider {
         }
     }
 
+    // Definition of the Blocks class for block tag generation
     public static class Blocks extends TagsProvider<Block>{
+        // Definition of various tag keys for blocks
         public static final TagKey<Block> SALT_BLOCK = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("forge", "salt"));
         public static final TagKey<Block> SHOVEL_MINEABLE = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("minecraft", "mineable/shovel"));
 
+        // Constructor for the Blocks class
         public Blocks(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, Registries.BLOCK, registries, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
         }
 
+        // Method to add tags to blocks
         @Override
         protected void addTags(HolderLookup.Provider provider) {
+            // Appending tags to specific blocks
             TagAppender<Block> saltBlockTagAppender = tag(SALT_BLOCK);
             saltBlockTagAppender.add(BMMBlocks.SALT_BLOCK.getKey());
 
