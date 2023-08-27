@@ -26,6 +26,7 @@ public class BMMItems {
     public static final RegistryObject<Item> MAYONNAISE = ITEMS.register("mayonnaise", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> SWEET_SOUR_SAUCE = ITEMS.register("sweet_sour_sauce", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> KETCHUP = ITEMS.register("ketchup", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
+    public static final RegistryObject<Item> MUSTARD = ITEMS.register("mustard", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> HAMBURGER = ITEMS.register("hamburger", () -> new Item(new Item.Properties().food(registerFoodValues(8, 4f).build())));
     public static final RegistryObject<Item> CHEESEBURGER = ITEMS.register("cheeseburger", () -> new Item(new Item.Properties().food(registerFoodValues(10, 5f).build())));
     public static final RegistryObject<Item> BIG_MAC = ITEMS.register("big_mac", () -> new Item(new Item.Properties().food(registerFoodValues(12, 6f).build())));

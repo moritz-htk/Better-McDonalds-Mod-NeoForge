@@ -60,7 +60,8 @@ public class BMMTagProvider {
             tag(SAUCES)
                     .add(BMMItems.MAYONNAISE.getKey())
                     .add(BMMItems.SWEET_SOUR_SAUCE.getKey())
-                    .add(BMMItems.KETCHUP.getKey());
+                    .add(BMMItems.KETCHUP.getKey())
+                    .add(BMMItems.MUSTARD.getKey());
         }
     }
 
