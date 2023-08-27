@@ -37,32 +37,30 @@ public class BMMTagProvider {
         // Method to add tags to items
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            // Appending tags to specific items
-            TagAppender<Item> saltTagAppender = tag(SALT);
-            saltTagAppender.add(BMMItems.SALT.getKey());
+            tag(SALT).add(BMMItems.SALT.getKey());
 
-            TagAppender<Item> burgerTagAppender = tag(BURGERS);
-            burgerTagAppender.add(BMMItems.HAMBURGER.getKey());
-            burgerTagAppender.add(BMMItems.CHEESEBURGER.getKey());
-            burgerTagAppender.add(BMMItems.BIG_MAC.getKey());
-            burgerTagAppender.add(BMMItems.CHICKENBURGER.getKey());
-            burgerTagAppender.add(BMMItems.MCCHICKEN.getKey());
-            burgerTagAppender.add(BMMItems.FILET_O_FISH.getKey());
+            tag(BURGERS)
+                    .add(BMMItems.HAMBURGER.getKey())
+                    .add(BMMItems.CHEESEBURGER.getKey())
+                    .add(BMMItems.BIG_MAC.getKey())
+                    .add(BMMItems.CHICKENBURGER.getKey())
+                    .add(BMMItems.MCCHICKEN.getKey())
+                    .add(BMMItems.FILET_O_FISH.getKey());
 
-            TagAppender<Item> drinkTagAppender = tag(DRINKS);
-            drinkTagAppender.add(BMMItems.COCA_COLA.getKey());
-            drinkTagAppender.add(BMMItems.FANTA.getKey());
-            drinkTagAppender.add(BMMItems.SPRITE.getKey());
-            drinkTagAppender.add(BMMItems.LIPTON_ICE_TEA_PEACH.getKey());
+            tag(DRINKS)
+                    .add(BMMItems.COCA_COLA.getKey())
+                    .add(BMMItems.FANTA.getKey())
+                    .add(BMMItems.SPRITE.getKey())
+                    .add(BMMItems.LIPTON_ICE_TEA_PEACH.getKey());
 
-            TagAppender<Item> sideDishTagAppender = tag(SIDE_DISHES);
-            sideDishTagAppender.add(BMMItems.CHICKEN_MCNUGGETS.getKey());
-            sideDishTagAppender.add(BMMItems.FRIES.getKey());
+            tag(SIDE_DISHES)
+                    .add(BMMItems.CHICKEN_MCNUGGETS.getKey())
+                    .add(BMMItems.FRIES.getKey());
 
-            TagAppender<Item> sauceTagAppender = tag(SAUCES);
-            sauceTagAppender.add(BMMItems.MAYONNAISE.getKey());
-            sauceTagAppender.add(BMMItems.SWEET_SOUR_SAUCE.getKey());
-            sauceTagAppender.add(BMMItems.KETCHUP.getKey());
+            tag(SAUCES)
+                    .add(BMMItems.MAYONNAISE.getKey())
+                    .add(BMMItems.SWEET_SOUR_SAUCE.getKey())
+                    .add(BMMItems.KETCHUP.getKey());
         }
     }
 
@@ -80,13 +78,8 @@ public class BMMTagProvider {
         // Method to add tags to blocks
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            // Appending tags to specific blocks
-            TagAppender<Block> saltBlockTagAppender = tag(SALT_BLOCK);
-            saltBlockTagAppender.add(BMMBlocks.SALT_BLOCK.getKey());
-
-            TagAppender<Block> shovelMineableTagAppender = tag(SHOVEL_MINEABLE);
-            shovelMineableTagAppender.replace(false);
-            shovelMineableTagAppender.add(BMMBlocks.SALT_BLOCK.getKey());
+            tag(SALT_BLOCK).add(BMMBlocks.SALT_BLOCK.getKey());
+            tag(SHOVEL_MINEABLE).add(BMMBlocks.SALT_BLOCK.getKey());
         }
     }
 }
