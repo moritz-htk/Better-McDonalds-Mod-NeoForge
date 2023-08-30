@@ -45,7 +45,7 @@ public class BMMItems {
     public static final RegistryObject<Item> LIPTON_ICE_TEA_PEACH = ITEMS.register("lipton_ice_tea_peach", () -> new DrinkItem(new Item.Properties().food(registerFoodValues(4, 2f).build())));
     public static final RegistryObject<Item> MCFLURRY = ITEMS.register("mcflurry", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).build())));
 
-    // Register a SwordItem with custom properties using a RegistryObject
+    // Register a KnifeItem with custom properties using a RegistryObject
     public static final RegistryObject<SwordItem> KNIFE = ITEMS.register("knife", () -> new KnifeItem(3, -3f, new Item.Properties()));
 
     // A utility method to create a FoodProperties.Builder with given nutrition and saturation values

@@ -58,10 +58,10 @@
   },
   "requirements": [
     [
-      "has_cooked_chicken",
       "has_wheat",
-      "has_grass",
+      "has_cooked_chicken",
       "has_mayonnaise",
+      "has_grass",
       "has_the_recipe"
     ]
   ],
