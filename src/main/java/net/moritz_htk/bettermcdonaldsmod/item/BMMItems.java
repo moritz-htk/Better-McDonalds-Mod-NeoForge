@@ -23,6 +23,8 @@ public class BMMItems {
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
     public static final RegistryObject<Item> BEEF_PATTY = ITEMS.register("beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).meat().build())));
     public static final RegistryObject<Item> COOKED_BEEF_PATTY = ITEMS.register("cooked_beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).meat().build())));
+    public static final RegistryObject<Item> RAW_BACON = ITEMS.register("raw_bacon", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).meat().build())));
+    public static final RegistryObject<Item> COOKED_BACON = ITEMS.register("cooked_bacon", () -> new Item(new Item.Properties().food(registerFoodValues(5, 2.5f).meat().build())));
     public static final RegistryObject<Item> MAYONNAISE = ITEMS.register("mayonnaise", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> SWEET_SOUR_SAUCE = ITEMS.register("sweet_sour_sauce", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> KETCHUP = ITEMS.register("ketchup", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));

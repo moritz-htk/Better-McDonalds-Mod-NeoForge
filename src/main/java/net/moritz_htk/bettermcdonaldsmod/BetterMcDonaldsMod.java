@@ -42,6 +42,8 @@ public class BetterMcDonaldsMod {
             event.accept(BMMItems.CHEESE);
             event.accept(BMMItems.BEEF_PATTY);
             event.accept(BMMItems.COOKED_BEEF_PATTY);
+            event.accept(BMMItems.RAW_BACON);
+            event.accept(BMMItems.COOKED_BACON);
             event.accept(BMMItems.MAYONNAISE);
             event.accept(BMMItems.SWEET_SOUR_SAUCE);
             event.accept(BMMItems.KETCHUP);
