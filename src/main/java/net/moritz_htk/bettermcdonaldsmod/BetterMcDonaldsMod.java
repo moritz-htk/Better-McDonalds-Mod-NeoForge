@@ -40,6 +40,7 @@ public class BetterMcDonaldsMod {
             event.accept(BMMBlocks.SALT_BLOCK);
             event.accept(BMMItems.SALT);
             event.accept(BMMItems.CHEESE);
+            event.accept(BMMItems.LETTUCE);
             event.accept(BMMItems.BEEF_PATTY);
             event.accept(BMMItems.COOKED_BEEF_PATTY);
             event.accept(BMMItems.RAW_BACON);

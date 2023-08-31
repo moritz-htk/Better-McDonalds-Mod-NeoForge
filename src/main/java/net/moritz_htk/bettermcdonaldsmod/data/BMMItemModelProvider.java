@@ -22,6 +22,7 @@ public class BMMItemModelProvider extends ItemModelProvider {
         // Register models and textures for each item in the mod
         simpleItem(BMMItems.SALT);
         simpleItem(BMMItems.CHEESE);
+        simpleItem(BMMItems.LETTUCE);
         simpleItem(BMMItems.BEEF_PATTY);
         simpleItem(BMMItems.COOKED_BEEF_PATTY);
         simpleItem(BMMItems.RAW_BACON);
