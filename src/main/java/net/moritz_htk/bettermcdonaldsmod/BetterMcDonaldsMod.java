@@ -1,10 +1,12 @@
 // Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod;
 
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMCreativeModeTabs;
@@ -28,8 +30,20 @@ public class BetterMcDonaldsMod {
         // Register this mod class as a listener for MinecraftForge events
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Add a listener for the BuildCreativeModeTabContentsEvent
+        // Add a listener for the FMLCommonSetupEvent and BuildCreativeModeTabContentsEvent
+        modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
+    }
+
+    // Event listener method to configure some aspects of the mod
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            // Configure ComposterBlock to accept certain items for composting
+            ComposterBlock.COMPOSTABLES.put(BMMItems.TOMATO.get(), 0.65f);
+            ComposterBlock.COMPOSTABLES.put(BMMItems.TOMATO_SEEDS.get(), 0.2f);
+            ComposterBlock.COMPOSTABLES.put(BMMItems.LETTUCE.get(), 0.65f);
+            ComposterBlock.COMPOSTABLES.put(BMMItems.LETTUCE_SEEDS.get(), 0.2f);
+        });
     }
 
     // Event listener method for adding items to creative mode tab
