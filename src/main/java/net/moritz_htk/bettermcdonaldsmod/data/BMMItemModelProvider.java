@@ -23,7 +23,9 @@ public class BMMItemModelProvider extends ItemModelProvider {
         simpleItem(BMMItems.SALT);
         simpleItem(BMMItems.CHEESE);
         simpleItem(BMMItems.TOMATO);
+        simpleItem(BMMItems.TOMATO_SEEDS);
         simpleItem(BMMItems.LETTUCE);
+        simpleItem(BMMItems.LETTUCE_SEEDS);
         simpleItem(BMMItems.BEEF_PATTY);
         simpleItem(BMMItems.COOKED_BEEF_PATTY);
         simpleItem(BMMItems.RAW_BACON);
