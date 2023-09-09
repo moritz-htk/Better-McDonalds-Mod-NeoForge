@@ -3,6 +3,7 @@ package net.moritz_htk.bettermcdonaldsmod.item;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -10,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
+import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.custom.DrinkItem;
 import net.moritz_htk.bettermcdonaldsmod.item.custom.KnifeItem;
 
@@ -21,9 +23,9 @@ public class BMMItems {
     // Register each custom item using a RegistryObject
     public static final RegistryObject<Item> SALT = ITEMS.register("salt", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TOMATO = ITEMS.register("tomato", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
-    public static final RegistryObject<Item> TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BMMBlocks.TOMATO_CROP.get(), new Item.Properties()));
     public static final RegistryObject<Item> LETTUCE = ITEMS.register("lettuce", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
-    public static final RegistryObject<Item> LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new ItemNameBlockItem(BMMBlocks.LETTUCE_CROP.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
     public static final RegistryObject<Item> BEEF_PATTY = ITEMS.register("beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).meat().build())));
     public static final RegistryObject<Item> COOKED_BEEF_PATTY = ITEMS.register("cooked_beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).meat().build())));
