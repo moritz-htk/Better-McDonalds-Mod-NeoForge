@@ -11,6 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMCreativeModeTabs;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
+import net.moritz_htk.bettermcdonaldsmod.loot.BMMLootModifiers;
 
 // Declare the mod as a NeoForge mod with the specified mod ID
 @Mod(BetterMcDonaldsMod.MOD_ID)
@@ -26,6 +27,7 @@ public class BetterMcDonaldsMod {
         BMMCreativeModeTabs.register(modEventBus);
         BMMBlocks.register(modEventBus);
         BMMItems.register(modEventBus);
+        BMMLootModifiers.register(modEventBus);
 
         // Register this mod class as a listener for MinecraftForge events
         MinecraftForge.EVENT_BUS.register(this);
