@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bettermcdonaldsmod:tomato"
+      "tag": "forge:crops/tomato"
     }
   ],
   "result": {

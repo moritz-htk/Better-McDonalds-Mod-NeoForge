@@ -29,13 +29,13 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMBlocks.SALT_BLOCK.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.TOMATO_SEEDS.get(), 2)
-                .requires(BMMItems.TOMATO.get())
-                .unlockedBy(getHasName(BMMItems.TOMATO.get()), has(BMMItems.TOMATO.get()))
+                .requires(BMMTagProvider.Items.TOMATO)
+                .unlockedBy(getHasName(BMMItems.TOMATO.get()), has(BMMTagProvider.Items.TOMATO))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.TOMATO_SEEDS.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.LETTUCE_SEEDS.get(), 2)
-                .requires(BMMItems.LETTUCE.get())
-                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMItems.LETTUCE.get()))
+                .requires(BMMTagProvider.Items.LETTUCE)
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.LETTUCE_SEEDS.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.CHEESE.get(), 2)
@@ -105,11 +105,11 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.WATER_BUCKET)
                 .requires(Items.SUGAR)
                 .requires(BMMTagProvider.Items.SALT)
-                .requires(BMMItems.TOMATO.get())
+                .requires(BMMTagProvider.Items.TOMATO)
                 .unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET))
                 .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
                 .unlockedBy(getHasName(BMMItems.SALT.get()), has(BMMTagProvider.Items.SALT))
-                .unlockedBy(getHasName(BMMItems.TOMATO.get()), has(BMMItems.TOMATO.get()))
+                .unlockedBy(getHasName(BMMItems.TOMATO.get()), has(BMMTagProvider.Items.TOMATO))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.KETCHUP.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.MUSTARD.get(), 2)
@@ -143,33 +143,33 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.BREAD)
                 .requires(BMMItems.COOKED_BEEF_PATTY.get(), 2)
                 .requires(BMMItems.CHEESE.get())
-                .requires(BMMItems.LETTUCE.get())
+                .requires(BMMTagProvider.Items.LETTUCE)
                 .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
                 .unlockedBy(getHasName(BMMItems.COOKED_BEEF_PATTY.get()), has(BMMItems.COOKED_BEEF_PATTY.get()))
                 .unlockedBy(getHasName(BMMItems.CHEESE.get()), has(BMMItems.CHEESE.get()))
-                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMItems.LETTUCE.get()))
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.BIG_MAC.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.CHICKENBURGER.get())
                 .requires(Items.BREAD)
                 .requires(Items.COOKED_CHICKEN)
                 .requires(BMMItems.KETCHUP.get())
-                .requires(BMMItems.LETTUCE.get())
+                .requires(BMMTagProvider.Items.LETTUCE)
                 .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
                 .unlockedBy(getHasName(Items.COOKED_CHICKEN), has(Items.COOKED_CHICKEN))
                 .unlockedBy(getHasName(BMMItems.KETCHUP.get()), has(BMMItems.KETCHUP.get()))
-                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMItems.LETTUCE.get()))
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.CHICKENBURGER.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.MCCHICKEN.get())
                 .requires(Items.BREAD)
                 .requires(Items.COOKED_CHICKEN)
                 .requires(BMMItems.MAYONNAISE.get())
-                .requires(BMMItems.LETTUCE.get())
+                .requires(BMMTagProvider.Items.LETTUCE)
                 .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
                 .unlockedBy(getHasName(Items.COOKED_CHICKEN), has(Items.COOKED_CHICKEN))
                 .unlockedBy(getHasName(BMMItems.MAYONNAISE.get()), has(BMMItems.MAYONNAISE.get()))
-                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMItems.LETTUCE.get()))
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.MCCHICKEN.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.FILET_O_FISH.get())
@@ -185,11 +185,11 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.WHEAT)
                 .requires(Items.COOKED_CHICKEN)
                 .requires(BMMItems.MAYONNAISE.get())
-                .requires(BMMItems.LETTUCE.get())
+                .requires(BMMTagProvider.Items.LETTUCE)
                 .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
                 .unlockedBy(getHasName(Items.COOKED_CHICKEN), has(Items.COOKED_CHICKEN))
                 .unlockedBy(getHasName(BMMItems.MAYONNAISE.get()), has(BMMItems.MAYONNAISE.get()))
-                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMItems.LETTUCE.get()))
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.MCWRAP.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.CHICKEN_MCNUGGETS.get())
