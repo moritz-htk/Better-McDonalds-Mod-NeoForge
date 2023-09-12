@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
@@ -25,16 +24,17 @@ public class BMMTagProvider {
     public static class Items extends TagsProvider<Item> {
         // Definition of various tag keys for items
         public static final TagKey<Item> SALT = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "dusts/salt"));
+        public static final TagKey<Item> DUSTS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "dusts"));
         public static final TagKey<Item> TOMATO = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops/tomato"));
         public static final TagKey<Item> LETTUCE = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops/lettuce"));
         public static final TagKey<Item> TOMATO_SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds/tomato"));
         public static final TagKey<Item> LETTUCE_SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds/lettuce"));
         public static final TagKey<Item> CROPS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops"));
         public static final TagKey<Item> SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds"));
-        public static final TagKey<Item> BURGERS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "burgers"));
-        public static final TagKey<Item> DRINKS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "drinks"));
-        public static final TagKey<Item> SIDE_DISHES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "side_dishes"));
-        public static final TagKey<Item> SAUCES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("bettermcdonaldsmod", "sauces"));
+        public static final TagKey<Item> BURGERS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "burgers"));
+        public static final TagKey<Item> DRINKS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "drinks"));
+        public static final TagKey<Item> SIDE_DISHES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "side_dishes"));
+        public static final TagKey<Item> SAUCES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "sauces"));
 
         // Constructor for the Items class
         public Items(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
@@ -45,6 +45,7 @@ public class BMMTagProvider {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             tag(SALT).add(BMMItems.SALT.getKey());
+            tag(DUSTS).addTag(Items.SALT);
             tag(TOMATO).add(BMMItems.TOMATO.getKey());
             tag(TOMATO_SEEDS).add(BMMItems.TOMATO_SEEDS.getKey());
             tag(LETTUCE).add(BMMItems.LETTUCE.getKey());
