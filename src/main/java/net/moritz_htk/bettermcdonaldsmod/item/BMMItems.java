@@ -27,6 +27,7 @@ public class BMMItems {
     public static final RegistryObject<Item> LETTUCE = ITEMS.register("lettuce", () -> new Item(new Item.Properties().food(registerFoodValues(2, 1f).build())));
     public static final RegistryObject<Item> LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new ItemNameBlockItem(BMMBlocks.LETTUCE_CROP.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
+    public static final RegistryObject<Item> TORTILLA = ITEMS.register("tortilla", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
     public static final RegistryObject<Item> BEEF_PATTY = ITEMS.register("beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).meat().build())));
     public static final RegistryObject<Item> COOKED_BEEF_PATTY = ITEMS.register("cooked_beef_patty", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).meat().build())));
     public static final RegistryObject<Item> RAW_BACON = ITEMS.register("raw_bacon", () -> new Item(new Item.Properties().food(registerFoodValues(3, 1.5f).meat().build())));

@@ -14,7 +14,6 @@ import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 import java.util.function.Consumer;
 
 public class BMMRecipeProvider extends RecipeProvider implements IConditionBuilder {
-
     public BMMRecipeProvider(PackOutput output) {
         super(output);
     }
@@ -44,6 +43,17 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.MILK_BUCKET), has(Items.MILK_BUCKET))
                 .unlockedBy(getHasName(BMMItems.SALT.get()), has(BMMTagProvider.Items.SALT))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.CHEESE.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.TORTILLA.get(), 2)
+                .requires(Items.WATER_BUCKET)
+                .requires(Items.WHEAT, 2)
+                .requires(Items.EGG)
+                .requires(BMMTagProvider.Items.SALT)
+                .unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET))
+                .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(BMMItems.SALT.get()), has(BMMTagProvider.Items.SALT))
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.TORTILLA.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.BEEF_PATTY.get(), 2)
                 .requires(BMMItems.KNIFE.get())
@@ -182,11 +192,11 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.FILET_O_FISH.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.MCWRAP.get())
-                .requires(Items.WHEAT)
+                .requires(BMMItems.TORTILLA.get())
                 .requires(Items.COOKED_CHICKEN)
                 .requires(BMMItems.MAYONNAISE.get())
                 .requires(BMMTagProvider.Items.LETTUCE)
-                .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+                .unlockedBy(getHasName(BMMItems.TORTILLA.get()), has(BMMItems.TORTILLA.get()))
                 .unlockedBy(getHasName(Items.COOKED_CHICKEN), has(Items.COOKED_CHICKEN))
                 .unlockedBy(getHasName(BMMItems.MAYONNAISE.get()), has(BMMItems.MAYONNAISE.get()))
                 .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
