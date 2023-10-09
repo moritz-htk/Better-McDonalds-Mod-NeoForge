@@ -37,6 +37,7 @@ public class BMMItemModelProvider extends ItemModelProvider {
         simpleItem(BMMItems.MUSTARD);
         simpleItem(BMMItems.HAMBURGER);
         simpleItem(BMMItems.CHEESEBURGER);
+        simpleItem(BMMItems.MCBACON);
         simpleItem(BMMItems.BIG_MAC);
         simpleItem(BMMItems.CHICKENBURGER);
         simpleItem(BMMItems.MCCHICKEN);

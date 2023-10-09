@@ -149,6 +149,17 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(BMMItems.CHEESE.get()), has(BMMItems.CHEESE.get()))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.CHEESEBURGER.get())));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.MCBACON.get())
+                .requires(Items.BREAD)
+                .requires(BMMItems.COOKED_BEEF_PATTY.get())
+                .requires(BMMItems.CHEESE.get())
+                .requires(BMMItems.COOKED_BACON.get())
+                .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
+                .unlockedBy(getHasName(BMMItems.COOKED_BEEF_PATTY.get()), has(BMMItems.COOKED_BEEF_PATTY.get()))
+                .unlockedBy(getHasName(BMMItems.CHEESE.get()), has(BMMItems.CHEESE.get()))
+                .unlockedBy(getHasName(BMMItems.COOKED_BACON.get()), has(BMMItems.COOKED_BACON.get()))
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.MCBACON.get())));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.BIG_MAC.get())
                 .requires(Items.BREAD)
                 .requires(BMMItems.COOKED_BEEF_PATTY.get(), 2)

@@ -71,6 +71,7 @@ public class BetterMcDonaldsMod {
             event.accept(BMMItems.MUSTARD);
             event.accept(BMMItems.HAMBURGER);
             event.accept(BMMItems.CHEESEBURGER);
+            event.accept(BMMItems.MCBACON);
             event.accept(BMMItems.BIG_MAC);
             event.accept(BMMItems.CHICKENBURGER);
             event.accept(BMMItems.MCCHICKEN);
