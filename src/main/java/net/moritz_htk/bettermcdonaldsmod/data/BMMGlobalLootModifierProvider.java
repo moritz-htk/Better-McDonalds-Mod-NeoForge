@@ -2,6 +2,8 @@
 package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -20,26 +22,21 @@ public class BMMGlobalLootModifierProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-        // Define loot modifiers for tomato seeds dropping from grass and fern blocks
-        add("tomato_seeds_from_grass", new AddItemModifier(new LootItemCondition[] {
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS).build(),
-                LootItemRandomChanceCondition.randomChance(0.15f).build()
-        }, BMMItems.TOMATO_SEEDS.get()));
+        // Define loot modifiers for seeds obtained from grass and fern blocks
+        addLootModifier("tomato_seeds_from_grass", Blocks.GRASS, BMMItems.TOMATO_SEEDS.get());
+        addLootModifier("tomato_seeds_from_fern", Blocks.FERN, BMMItems.TOMATO_SEEDS.get());
+        addLootModifier("lettuce_seeds_from_grass", Blocks.GRASS, BMMItems.LETTUCE_SEEDS.get());
+        addLootModifier("lettuce_seeds_from_fern", Blocks.FERN, BMMItems.LETTUCE_SEEDS.get());
+    }
 
-        add("tomato_seeds_from_fern", new AddItemModifier(new LootItemCondition[] {
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.FERN).build(),
+    private void addLootModifier(String name, Block block, Item item) {
+        // Define loot conditions to trigger the loot modifier
+        LootItemCondition[] conditions = new LootItemCondition[] {
+                LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).build(),
                 LootItemRandomChanceCondition.randomChance(0.15f).build()
-        }, BMMItems.TOMATO_SEEDS.get()));
+        };
 
-        // Define loot modifiers for lettuce seeds dropping from grass and fern blocks
-        add("lettuce_seeds_from_grass", new AddItemModifier(new LootItemCondition[] {
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS).build(),
-                LootItemRandomChanceCondition.randomChance(0.15f).build()
-        }, BMMItems.LETTUCE_SEEDS.get()));
-
-        add("lettuce_seeds_from_fern", new AddItemModifier(new LootItemCondition[] {
-                LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.FERN).build(),
-                LootItemRandomChanceCondition.randomChance(0.15f).build()
-        }, BMMItems.LETTUCE_SEEDS.get()));
+        // Define loot conditions to trigger the loot modifier
+        add(name, new AddItemModifier(conditions, item));
     }
 }
