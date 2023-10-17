@@ -61,6 +61,7 @@ public class BMMTagProvider {
             tag(BURGERS)
                     .add(BMMItems.HAMBURGER.getKey())
                     .add(BMMItems.CHEESEBURGER.getKey())
+                    .add(BMMItems.MCBACON.getKey())
                     .add(BMMItems.BIG_MAC.getKey())
                     .add(BMMItems.CHICKENBURGER.getKey())
                     .add(BMMItems.MCCHICKEN.getKey())
