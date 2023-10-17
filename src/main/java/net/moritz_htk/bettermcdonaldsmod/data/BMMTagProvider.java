@@ -23,22 +23,27 @@ public class BMMTagProvider {
     // Definition of the Items class for item tag generation
     public static class Items extends TagsProvider<Item> {
         // Definition of various tag keys for items
-        public static final TagKey<Item> SALT = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "dusts/salt"));
-        public static final TagKey<Item> DUSTS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "dusts"));
-        public static final TagKey<Item> TOMATO = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops/tomato"));
-        public static final TagKey<Item> LETTUCE = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops/lettuce"));
-        public static final TagKey<Item> TOMATO_SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds/tomato"));
-        public static final TagKey<Item> LETTUCE_SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds/lettuce"));
-        public static final TagKey<Item> CROPS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "crops"));
-        public static final TagKey<Item> SEEDS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation("forge", "seeds"));
-        public static final TagKey<Item> BURGERS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "burgers"));
-        public static final TagKey<Item> DRINKS = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "drinks"));
-        public static final TagKey<Item> SIDE_DISHES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "side_dishes"));
-        public static final TagKey<Item> SAUCES = ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "sauces"));
+        public static final TagKey<Item> SALT = registerItemTag("forge", "dusts/salt");
+        public static final TagKey<Item> DUSTS = registerItemTag("forge", "dusts");
+        public static final TagKey<Item> TOMATO = registerItemTag("forge", "crops/tomato");
+        public static final TagKey<Item> LETTUCE = registerItemTag("forge", "crops/lettuce");
+        public static final TagKey<Item> TOMATO_SEEDS = registerItemTag("forge", "seeds/tomato");
+        public static final TagKey<Item> LETTUCE_SEEDS = registerItemTag("forge", "seeds/lettuce");
+        public static final TagKey<Item> CROPS = registerItemTag("forge", "crops");
+        public static final TagKey<Item> SEEDS = registerItemTag("forge", "seeds");
+        public static final TagKey<Item> BURGERS = registerItemTag(BetterMcDonaldsMod.MOD_ID, "burgers");
+        public static final TagKey<Item> DRINKS = registerItemTag(BetterMcDonaldsMod.MOD_ID, "drinks");
+        public static final TagKey<Item> SIDE_DISHES = registerItemTag(BetterMcDonaldsMod.MOD_ID, "side_dishes");
+        public static final TagKey<Item> SAUCES = registerItemTag(BetterMcDonaldsMod.MOD_ID, "sauces");
 
         // Constructor for the Items class
         public Items(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, Registries.ITEM, registries, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
+        }
+
+        // Method to register a custom item tag using the provided namespace and path
+        private static TagKey<Item> registerItemTag(String namespace, String path) {
+            return ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(namespace, path));
         }
 
         // Method to add tags to items
@@ -88,12 +93,17 @@ public class BMMTagProvider {
     // Definition of the Blocks class for block tag generation
     public static class Blocks extends TagsProvider<Block>{
         // Definition of various tag keys for blocks
-        public static final TagKey<Block> SALT_BLOCK = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("forge", "salt"));
-        public static final TagKey<Block> SHOVEL_MINEABLE = ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation("minecraft", "mineable/shovel"));
+        public static final TagKey<Block> SALT_BLOCK = registerBlockTag("forge", "salt");
+        public static final TagKey<Block> SHOVEL_MINEABLE = registerBlockTag("minecraft", "mineable/shovel");
 
         // Constructor for the Blocks class
         public Blocks(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, Registries.BLOCK, registries, BetterMcDonaldsMod.MOD_ID, existingFileHelper);
+        }
+
+        // Method to register a custom block tag using the provided namespace and path
+        private static TagKey<Block> registerBlockTag(String namespace, String path) {
+            return ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation(namespace, path));
         }
 
         // Method to add tags to blocks
