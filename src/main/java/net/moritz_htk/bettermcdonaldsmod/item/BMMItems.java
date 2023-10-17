@@ -47,17 +47,17 @@ public class BMMItems {
     public static final RegistryObject<Item> CHICKEN_MCNUGGETS = ITEMS.register("chicken_mcnuggets", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).build())));
     public static final RegistryObject<Item> FRIES = ITEMS.register("fries", () -> new Item(new Item.Properties().food(registerFoodValues(5, 2.5f).build())));
     public static final RegistryObject<Item> HAPPY_MEAL = ITEMS.register("happy_meal", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON).food(registerFoodValues(14, 7f).build())));
-    public static final RegistryObject<Item> COCA_COLA = ITEMS.register("coca_cola", () -> new DrinkItem(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
-    public static final RegistryObject<Item> FANTA = ITEMS.register("fanta", () -> new DrinkItem(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
-    public static final RegistryObject<Item> SPRITE = ITEMS.register("sprite", () -> new DrinkItem(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
-    public static final RegistryObject<Item> LIPTON_ICE_TEA_PEACH = ITEMS.register("lipton_ice_tea_peach", () -> new DrinkItem(new Item.Properties().food(registerFoodValues(3, 1.5f).build())));
+    public static final RegistryObject<Item> COCA_COLA = ITEMS.register("coca_cola", () -> new DrinkItem(new Item.Properties()));
+    public static final RegistryObject<Item> FANTA = ITEMS.register("fanta", () -> new DrinkItem(new Item.Properties()));
+    public static final RegistryObject<Item> SPRITE = ITEMS.register("sprite", () -> new DrinkItem(new Item.Properties()));
+    public static final RegistryObject<Item> LIPTON_ICE_TEA_PEACH = ITEMS.register("lipton_ice_tea_peach", () -> new DrinkItem(new Item.Properties()));
     public static final RegistryObject<Item> MCFLURRY = ITEMS.register("mcflurry", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).build())));
 
     // Register a KnifeItem with custom properties using a RegistryObject
     public static final RegistryObject<SwordItem> KNIFE = ITEMS.register("knife", () -> new KnifeItem(3, -3f, new Item.Properties()));
 
-    // A utility method to create a FoodProperties.Builder with given nutrition and saturation values
-    private static FoodProperties.Builder registerFoodValues(int nutrition, float saturation) {
+    // Method to create a FoodProperties.Builder with given nutrition and saturation values
+    public static FoodProperties.Builder registerFoodValues(int nutrition, float saturation) {
         return new FoodProperties.Builder().nutrition(nutrition).saturationMod(saturation);
     }
 
