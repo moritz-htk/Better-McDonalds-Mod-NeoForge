@@ -43,6 +43,7 @@ public class BMMItemModelProvider extends ItemModelProvider {
         simpleItem(BMMItems.MCCHICKEN);
         simpleItem(BMMItems.FILET_O_FISH);
         simpleItem(BMMItems.MCWRAP);
+        simpleItem(BMMItems.SNACK_SALAD);
         simpleItem(BMMItems.CHICKEN_MCNUGGETS);
         simpleItem(BMMItems.FRIES);
         simpleItem(BMMItems.HAPPY_MEAL);

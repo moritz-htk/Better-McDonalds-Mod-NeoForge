@@ -213,6 +213,13 @@ public class BMMRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
                 .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.MCWRAP.get())));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.SNACK_SALAD.get())
+                .requires(BMMTagProvider.Items.TOMATO)
+                .requires(BMMTagProvider.Items.LETTUCE)
+                .unlockedBy(getHasName(BMMItems.TOMATO.get()), has(BMMTagProvider.Items.TOMATO))
+                .unlockedBy(getHasName(BMMItems.LETTUCE.get()), has(BMMTagProvider.Items.LETTUCE))
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, getItemName(BMMItems.SNACK_SALAD.get())));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BMMItems.CHICKEN_MCNUGGETS.get())
                 .requires(BMMItems.KNIFE.get())
                 .requires(Items.COOKED_CHICKEN)

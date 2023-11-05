@@ -44,6 +44,7 @@ public class BMMItems {
     public static final RegistryObject<Item> MCCHICKEN = ITEMS.register("mcchicken", () -> new Item(new Item.Properties().food(registerFoodValues(8, 4f).build())));
     public static final RegistryObject<Item> FILET_O_FISH = ITEMS.register("filet_o_fish", () -> new Item(new Item.Properties().food(registerFoodValues(6, 3f).build())));
     public static final RegistryObject<Item> MCWRAP = ITEMS.register("mcwrap", () -> new Item(new Item.Properties().food(registerFoodValues(5, 2.5f).build())));
+    public static final RegistryObject<Item> SNACK_SALAD = ITEMS.register("snack_salad", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).build())));
     public static final RegistryObject<Item> CHICKEN_MCNUGGETS = ITEMS.register("chicken_mcnuggets", () -> new Item(new Item.Properties().food(registerFoodValues(4, 2f).build())));
     public static final RegistryObject<Item> FRIES = ITEMS.register("fries", () -> new Item(new Item.Properties().food(registerFoodValues(5, 2.5f).build())));
     public static final RegistryObject<Item> HAPPY_MEAL = ITEMS.register("happy_meal", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON).food(registerFoodValues(14, 7f).build())));
