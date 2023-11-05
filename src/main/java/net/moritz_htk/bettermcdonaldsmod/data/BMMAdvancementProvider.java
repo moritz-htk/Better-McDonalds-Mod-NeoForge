@@ -28,55 +28,46 @@ public class BMMAdvancementProvider extends ForgeAdvancementProvider {
 
     // Nested class for defining advancement generation logic
     private static class BMMAdvancements implements ForgeAdvancementProvider.AdvancementGenerator {
-
         @Override
         public void generate(HolderLookup.Provider registries, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
-            // Create a "Start" advancement
-            Advancement START = Advancement.Builder.advancement()
-                    .display(BMMItems.HAPPY_MEAL.get().getDefaultInstance(),
-                            Component.literal("Better McDonald's Mod"),
-                            Component.translatable("advancement." + BetterMcDonaldsMod.MOD_ID + ".start.description"),
-                            new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "textures/screens/advancement_tab.png"),
-                            FrameType.TASK, false, false, false)
-                    .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
-                    .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "start"), existingFileHelper);
+            // Create the root advancement
+            Advancement ROOT = createRootAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.HAPPY_MEAL.get().getDefaultInstance(), "root");
 
-            // Create a "Get Salt" advancement
-            Advancement GET_SALT = Advancement.Builder.advancement()
-                    .display(makeNormalDisplay(BMMItems.SALT.get().getDefaultInstance(), FrameType.TASK, "get_salt"))
-                    .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(BMMItems.SALT.get()))
-                    .parent(START)
-                    .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "get_salt"), existingFileHelper);
+            // Create child advancements and link them to the root
+            Advancement GET_SALT = createAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.SALT.get().getDefaultInstance(), "get_salt", ROOT);
+            createAdvancement(consumer, existingFileHelper, FrameType.GOAL, BMMItems.COCA_COLA.get().getDefaultInstance(), "craft_drink", GET_SALT);
 
-            // Create a "Craft Knife" advancement
-            Advancement CRAFT_KNIFE = Advancement.Builder.advancement()
-                    .display(makeNormalDisplay(BMMItems.KNIFE.get().getDefaultInstance(), FrameType.TASK, "craft_knife"))
-                    .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(BMMItems.KNIFE.get()))
-                    .parent(START)
-                    .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "craft_knife"), existingFileHelper);
-
-            // Create a "Craft Burger" advancement
-            Advancement.Builder.advancement()
-                    .display(makeNormalDisplay(BMMItems.HAMBURGER.get().getDefaultInstance(), FrameType.GOAL, "craft_burger"))
-                    .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(BMMItems.HAMBURGER.get()))
-                    .parent(CRAFT_KNIFE)
-                    .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "craft_burger"), existingFileHelper);
-
-            // Create a "Craft Drink" advancement
-            Advancement.Builder.advancement()
-                    .display(makeNormalDisplay(BMMItems.COCA_COLA.get().getDefaultInstance(), FrameType.GOAL, "craft_drink"))
-                    .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(BMMItems.COCA_COLA.get()))
-                    .parent(GET_SALT)
-                    .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "craft_drink"), existingFileHelper);
+            Advancement CRAFT_KNIFE = createAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.KNIFE.get().getDefaultInstance(), "craft_knife", ROOT);
+            createAdvancement(consumer, existingFileHelper, FrameType.GOAL, BMMItems.HAMBURGER.get().getDefaultInstance(), "craft_burger", CRAFT_KNIFE);
         }
     }
 
-    // Method to create a DisplayInfo object for advancement display
-    public static DisplayInfo makeNormalDisplay(ItemStack item, FrameType frame, String titleKey) {
-        return new DisplayInfo(item.getItem().getDefaultInstance(),
-                Component.translatable("advancement." + BetterMcDonaldsMod.MOD_ID + "." + titleKey + ".title"),
+    // Method to create the root advancement
+    public static Advancement createRootAdvancement(Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper, FrameType frame, ItemStack item, String titleKey) {
+        return Advancement.Builder.advancement()
+                .display(createAdvancementDisplay(item,
+                        Component.literal("Better McDonald's Mod"),
+                        titleKey, frame, false, false))
+                .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, titleKey), existingFileHelper);
+    }
+
+    // Method to create advancements with a parent
+    public static Advancement createAdvancement(Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper, FrameType frame, ItemStack item, String titleKey, Advancement parent) {
+        return Advancement.Builder.advancement()
+                .display(createAdvancementDisplay(item,
+                        Component.translatable("advancement." + BetterMcDonaldsMod.MOD_ID + "." + titleKey + ".title"),
+                        titleKey, frame, true, true))
+                .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(item.getItem()))
+                .parent(parent)
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, titleKey), existingFileHelper);
+    }
+
+    // Method to create display information for advancements
+    public static DisplayInfo createAdvancementDisplay(ItemStack item, Component component, String titleKey, FrameType frame, boolean showToast, boolean announceToChat) {
+        return new DisplayInfo(item, component,
                 Component.translatable("advancement." + BetterMcDonaldsMod.MOD_ID + "." + titleKey + ".description"),
                 new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "textures/screens/advancement_tab.png"),
-                frame, true, true, false);
+                frame, showToast, announceToChat, false);
     }
 }

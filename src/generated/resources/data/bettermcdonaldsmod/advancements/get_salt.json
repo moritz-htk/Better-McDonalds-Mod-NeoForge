@@ -1,5 +1,5 @@
 {
-  "parent": "bettermcdonaldsmod:start",
+  "parent": "bettermcdonaldsmod:root",
   "criteria": {
     "inventory_changed": {
       "conditions": {
