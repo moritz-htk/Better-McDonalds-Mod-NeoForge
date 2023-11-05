@@ -39,6 +39,10 @@ public class BMMAdvancementProvider extends ForgeAdvancementProvider {
 
             Advancement CRAFT_KNIFE = createAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.KNIFE.get().getDefaultInstance(), "craft_knife", ROOT);
             createAdvancement(consumer, existingFileHelper, FrameType.GOAL, BMMItems.HAMBURGER.get().getDefaultInstance(), "craft_burger", CRAFT_KNIFE);
+
+            Advancement GET_SEEDS = createAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.LETTUCE_SEEDS.get().getDefaultInstance(), "get_seeds", ROOT);
+            Advancement HARVEST_LETTUCE = createAdvancement(consumer, existingFileHelper, FrameType.TASK, BMMItems.LETTUCE.get().getDefaultInstance(), "harvest_lettuce", GET_SEEDS);
+            createAdvancement(consumer, existingFileHelper, FrameType.GOAL, BMMItems.SNACK_SALAD.get().getDefaultInstance(), "craft_snack_salad", HARVEST_LETTUCE);
         }
     }
 
