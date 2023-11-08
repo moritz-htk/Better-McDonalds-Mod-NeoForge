@@ -1,12 +1,12 @@
 {
-  "parent": "bettermcdonaldsmod:root",
+  "parent": "bettermcdonaldsmod:bettermcdonaldsmod/get_salt",
   "criteria": {
     "inventory_changed": {
       "conditions": {
         "items": [
           {
             "items": [
-              "bettermcdonaldsmod:knife"
+              "bettermcdonaldsmod:coca_cola"
             ]
           }
         ]
@@ -18,17 +18,16 @@
     "announce_to_chat": true,
     "background": "bettermcdonaldsmod:textures/screens/advancement_tab.png",
     "description": {
-      "translate": "advancement.bettermcdonaldsmod.craft_knife.description"
+      "translate": "advancement.bettermcdonaldsmod.craft_drink.description"
     },
-    "frame": "task",
+    "frame": "goal",
     "hidden": false,
     "icon": {
-      "item": "bettermcdonaldsmod:knife",
-      "nbt": "{Damage:0}"
+      "item": "bettermcdonaldsmod:coca_cola"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.bettermcdonaldsmod.craft_knife.title"
+      "translate": "advancement.bettermcdonaldsmod.craft_drink.title"
     }
   },
   "requirements": [

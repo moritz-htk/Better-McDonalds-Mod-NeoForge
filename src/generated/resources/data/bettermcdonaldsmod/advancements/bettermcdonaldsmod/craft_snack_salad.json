@@ -1,5 +1,5 @@
 {
-  "parent": "bettermcdonaldsmod:harvest_lettuce",
+  "parent": "bettermcdonaldsmod:bettermcdonaldsmod/harvest_lettuce",
   "criteria": {
     "inventory_changed": {
       "conditions": {

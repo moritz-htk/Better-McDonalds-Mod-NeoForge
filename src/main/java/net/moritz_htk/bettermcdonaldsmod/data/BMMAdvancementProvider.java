@@ -53,7 +53,7 @@ public class BMMAdvancementProvider extends ForgeAdvancementProvider {
                         Component.literal("Better McDonald's Mod"),
                         titleKey, frame, false, false))
                 .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
-                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, titleKey), existingFileHelper);
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, BetterMcDonaldsMod.MOD_ID + "/" + titleKey), existingFileHelper);
     }
 
     // Method to create advancements with a parent
@@ -64,7 +64,7 @@ public class BMMAdvancementProvider extends ForgeAdvancementProvider {
                         titleKey, frame, true, true))
                 .addCriterion("inventory_changed", InventoryChangeTrigger.TriggerInstance.hasItems(item.getItem()))
                 .parent(parent)
-                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, titleKey), existingFileHelper);
+                .save(consumer, new ResourceLocation(BetterMcDonaldsMod.MOD_ID, BetterMcDonaldsMod.MOD_ID + "/" + titleKey), existingFileHelper);
     }
 
     // Method to create display information for advancements
