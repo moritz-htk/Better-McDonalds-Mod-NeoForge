@@ -1,3 +1,4 @@
+// Import necessary classes and packages
 package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.data.PackOutput;
@@ -13,13 +14,16 @@ import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 
 import java.util.function.Consumer;
 
+// Custom recipe provider for defining recipes
 public class BMMRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public BMMRecipeProvider(PackOutput output) {
+        // Initialize the recipe provider with the output location
         super(output);
     }
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        // Define recipes for the custom blocks and items
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BMMBlocks.SALT_BLOCK.get(), 1)
                 .define('#', BMMTagProvider.Items.SALT)
                 .pattern("##")
