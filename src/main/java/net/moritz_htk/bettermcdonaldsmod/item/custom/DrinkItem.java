@@ -10,7 +10,7 @@ import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 public class DrinkItem extends Item {
     // Constructor for the DrinkItem class
     public DrinkItem(Properties properties) {
-        super(properties.food(BMMItems.registerFoodValues(3, 1.5f).build()));
+        super(properties.food(BMMItems.registerFoodValues(3, 0.4f).build()));
     }
 
     // Method to determine the use animation for the item
