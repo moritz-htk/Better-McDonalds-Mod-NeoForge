@@ -3,12 +3,10 @@ package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 // Custom item model provider for defining item models and textures
 public class BMMItemModelProvider extends ItemModelProvider {
@@ -20,50 +18,50 @@ public class BMMItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Register models and textures for each item in the mod
-        simpleItem(BMMItems.SALT);
-        simpleItem(BMMItems.TOMATO);
-        simpleItem(BMMItems.TOMATO_SEEDS);
-        simpleItem(BMMItems.LETTUCE);
-        simpleItem(BMMItems.LETTUCE_SEEDS);
-        simpleItem(BMMItems.CHEESE);
-        simpleItem(BMMItems.TORTILLA);
-        simpleItem(BMMItems.BEEF_PATTY);
-        simpleItem(BMMItems.COOKED_BEEF_PATTY);
-        simpleItem(BMMItems.RAW_BACON);
-        simpleItem(BMMItems.COOKED_BACON);
-        simpleItem(BMMItems.MAYONNAISE);
-        simpleItem(BMMItems.SWEET_SOUR_SAUCE);
-        simpleItem(BMMItems.KETCHUP);
-        simpleItem(BMMItems.MUSTARD);
-        simpleItem(BMMItems.HAMBURGER);
-        simpleItem(BMMItems.CHEESEBURGER);
-        simpleItem(BMMItems.MCBACON);
-        simpleItem(BMMItems.BIG_MAC);
-        simpleItem(BMMItems.CHICKENBURGER);
-        simpleItem(BMMItems.MCCHICKEN);
-        simpleItem(BMMItems.FILET_O_FISH);
-        simpleItem(BMMItems.MCWRAP);
-        simpleItem(BMMItems.SNACK_SALAD);
-        simpleItem(BMMItems.CHICKEN_MCNUGGETS);
-        simpleItem(BMMItems.FRIES);
-        simpleItem(BMMItems.HAPPY_MEAL);
-        simpleItem(BMMItems.COCA_COLA);
-        simpleItem(BMMItems.FANTA);
-        simpleItem(BMMItems.SPRITE);
-        simpleItem(BMMItems.LIPTON_ICE_TEA_PEACH);
-        simpleItem(BMMItems.MCFLURRY);
+        simpleItem(BMMItems.SALT.getId());
+        simpleItem(BMMItems.TOMATO.getId());
+        simpleItem(BMMItems.TOMATO_SEEDS.getId());
+        simpleItem(BMMItems.LETTUCE.getId());
+        simpleItem(BMMItems.LETTUCE_SEEDS.getId());
+        simpleItem(BMMItems.CHEESE.getId());
+        simpleItem(BMMItems.TORTILLA.getId());
+        simpleItem(BMMItems.BEEF_PATTY.getId());
+        simpleItem(BMMItems.COOKED_BEEF_PATTY.getId());
+        simpleItem(BMMItems.RAW_BACON.getId());
+        simpleItem(BMMItems.COOKED_BACON.getId());
+        simpleItem(BMMItems.MAYONNAISE.getId());
+        simpleItem(BMMItems.SWEET_SOUR_SAUCE.getId());
+        simpleItem(BMMItems.KETCHUP.getId());
+        simpleItem(BMMItems.MUSTARD.getId());
+        simpleItem(BMMItems.HAMBURGER.getId());
+        simpleItem(BMMItems.CHEESEBURGER.getId());
+        simpleItem(BMMItems.MCBACON.getId());
+        simpleItem(BMMItems.BIG_MAC.getId());
+        simpleItem(BMMItems.CHICKENBURGER.getId());
+        simpleItem(BMMItems.MCCHICKEN.getId());
+        simpleItem(BMMItems.FILET_O_FISH.getId());
+        simpleItem(BMMItems.MCWRAP.getId());
+        simpleItem(BMMItems.SNACK_SALAD.getId());
+        simpleItem(BMMItems.CHICKEN_MCNUGGETS.getId());
+        simpleItem(BMMItems.FRIES.getId());
+        simpleItem(BMMItems.HAPPY_MEAL.getId());
+        simpleItem(BMMItems.COCA_COLA.getId());
+        simpleItem(BMMItems.FANTA.getId());
+        simpleItem(BMMItems.SPRITE.getId());
+        simpleItem(BMMItems.LIPTON_ICE_TEA_PEACH.getId());
+        simpleItem(BMMItems.MCFLURRY.getId());
 
         // Register model and texture for handheld item (knife)
-        handheldItem();
+        handheldItem(BMMItems.KNIFE.getId());
     }
 
     // Register a simple item model and texture
-    private void simpleItem(RegistryObject<Item> item) {
-        withExistingParent(item.getId().getPath(), new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getId().getPath()));
+    private void simpleItem(ResourceLocation item) {
+        withExistingParent(item.toString(), new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getPath()));
     }
 
     // Register a handheld item model and texture
-    private void handheldItem() {
-        withExistingParent(BMMItems.KNIFE.getId().getPath(), new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + BMMItems.KNIFE.getId().getPath()));
+    private void handheldItem(ResourceLocation item) {
+        withExistingParent(item.toString(), new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(BetterMcDonaldsMod.MOD_ID, "item/" + item.getPath()));
     }
 }

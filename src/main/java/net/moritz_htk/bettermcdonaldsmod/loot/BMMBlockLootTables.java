@@ -9,13 +9,14 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.RegistryObject;
 import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.block.custom.LettuceCropBlock;
 import net.moritz_htk.bettermcdonaldsmod.block.custom.TomatoCropBlock;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 // Custom provider for defining block loot tables
 public class BMMBlockLootTables extends BlockLootSubProvider {
@@ -47,6 +48,6 @@ public class BMMBlockLootTables extends BlockLootSubProvider {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         // Retrieve all blocks registered in the BMMBlocks.BLOCKS deferred register
-        return BMMBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        return BMMBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::value).collect(Collectors.toList());
     }
 }
