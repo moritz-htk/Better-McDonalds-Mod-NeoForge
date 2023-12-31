@@ -2,6 +2,7 @@
 package net.moritz_htk.bettermcdonaldsmod.data;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
@@ -9,11 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -43,7 +43,7 @@ public class BMMTagProvider {
 
         // Method to register a custom item tag using the provided namespace and path
         private static TagKey<Item> registerItemTag(String namespace, String path) {
-            return ForgeRegistries.ITEMS.tags().createTagKey(new ResourceLocation(namespace, path));
+            return new TagKey<>(BuiltInRegistries.ITEM.key(), new ResourceLocation(namespace, path));
         }
 
         // Method to add tags to items
@@ -103,7 +103,7 @@ public class BMMTagProvider {
 
         // Method to register a custom block tag using the provided namespace and path
         private static TagKey<Block> registerBlockTag(String namespace, String path) {
-            return ForgeRegistries.BLOCKS.tags().createTagKey(new ResourceLocation(namespace, path));
+            return new TagKey<>(BuiltInRegistries.BLOCK.key(), new ResourceLocation(namespace, path));
         }
 
         // Method to add tags to blocks

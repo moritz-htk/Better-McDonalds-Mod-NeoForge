@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 import net.moritz_htk.bettermcdonaldsmod.loot.AddItemModifier;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 // Custom global loot modifier provider for generating loot modifiers
 public class BMMGlobalLootModifierProvider extends GlobalLootModifierProvider {
@@ -23,9 +23,9 @@ public class BMMGlobalLootModifierProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         // Define loot modifiers for seeds obtained from grass and fern blocks
-        addLootModifier("tomato_seeds_from_grass", Blocks.GRASS, BMMItems.TOMATO_SEEDS.get());
+        addLootModifier("tomato_seeds_from_grass", Blocks.SHORT_GRASS, BMMItems.TOMATO_SEEDS.get());
         addLootModifier("tomato_seeds_from_fern", Blocks.FERN, BMMItems.TOMATO_SEEDS.get());
-        addLootModifier("lettuce_seeds_from_grass", Blocks.GRASS, BMMItems.LETTUCE_SEEDS.get());
+        addLootModifier("lettuce_seeds_from_grass", Blocks.SHORT_GRASS, BMMItems.LETTUCE_SEEDS.get());
         addLootModifier("lettuce_seeds_from_fern", Blocks.FERN, BMMItems.LETTUCE_SEEDS.get());
     }
 

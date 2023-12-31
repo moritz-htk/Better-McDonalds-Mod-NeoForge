@@ -5,10 +5,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.moritz_htk.bettermcdonaldsmod.BetterMcDonaldsMod;
 import net.moritz_htk.bettermcdonaldsmod.worldgen.BMMConfiguredFeatures;
 import net.moritz_htk.bettermcdonaldsmod.worldgen.BMMPlacedFeatures;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;

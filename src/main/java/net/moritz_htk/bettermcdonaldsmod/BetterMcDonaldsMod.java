@@ -2,16 +2,14 @@
 package net.moritz_htk.bettermcdonaldsmod;
 
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.moritz_htk.bettermcdonaldsmod.block.BMMBlocks;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMCreativeModeTabs;
 import net.moritz_htk.bettermcdonaldsmod.item.BMMItems;
 import net.moritz_htk.bettermcdonaldsmod.loot.BMMLootModifiers;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 // Declare the mod as a NeoForge mod with the specified mod ID
 @Mod(BetterMcDonaldsMod.MOD_ID)
@@ -19,18 +17,12 @@ public class BetterMcDonaldsMod {
     public static final String MOD_ID = "bettermcdonaldsmod";
 
     // Constructor for the mod class
-    public BetterMcDonaldsMod() {
-        // Get the mod event bus
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public BetterMcDonaldsMod(IEventBus modEventBus) {
         // Register creative mode tab, blocks, and items on the event bus
         BMMCreativeModeTabs.register(modEventBus);
         BMMBlocks.register(modEventBus);
         BMMItems.register(modEventBus);
         BMMLootModifiers.register(modEventBus);
-
-        // Register this mod class as a listener for MinecraftForge events
-        MinecraftForge.EVENT_BUS.register(this);
 
         // Add a listener for the FMLCommonSetupEvent and BuildCreativeModeTabContentsEvent
         modEventBus.addListener(this::commonSetup);
